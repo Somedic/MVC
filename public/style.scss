@@ -1,0 +1,75 @@
+@import "css/tools/fontawesome/font-awesome";
+
+.vote{
+   width: 150px;
+   margin: 25px 0;
+   float: right;
+   form{
+      display: inline-block;
+   }
+}
+
+
+
+/* Vote Like / Dislike
+   ========================================================================== */
+.vote_bar{
+   width: 100%;
+   height: 4px;
+   background-color: #f2504b;
+}
+
+.vote_loading{
+   display: none;
+}
+
+.vote_progress{
+   height: 4px;
+   width: 0%;
+   background-color: #63b96b;
+   transition: width 0.3s;
+}
+
+.vote_btns{
+   margin-top: 10px;
+   text-align: right;
+}
+
+.vote_btn{
+   border: none;
+   padding: 0;
+   display: inline-block;
+   margin: 0 0 0 10px;
+   cursor: pointer;
+   background: transparent;
+   transition: color 0.3s;
+}
+
+.vote_like:hover, .is-liked .vote_like{
+   color: #63b96b;
+}
+
+.vote_dislike:hover, .is-disliked .vote_dislike{
+   color: #f2504b;
+}
+
+/* Vote Stars
+   ========================================================================== */
+.vote_star{
+   @extend .fa;
+   @extend .fa-star;
+   font-size: 30px;
+   color: #fff741;
+   cursor: pointer;
+   float: left;
+
+
+   .vote_stars:hover &{ color: #fff741!important; }
+   .vote_stars:hover &:hover ~ .vote_star{ color: #262829!important; }
+
+   .is-score1 .vote_star1 ~ &{ color: #262829; }
+   .is-score2 .vote_star2 ~ &{ color: #262829; }
+   .is-score3 .vote_star3 ~ &{ color: #262829; }
+   .is-score4 .vote_star4 ~ &{ color: #262829; }
+
+}

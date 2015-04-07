@@ -18,9 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -30,8 +28,6 @@
 </head>
 
 <body>
-
-
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -54,13 +50,22 @@
                 </ul>
             <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="#">function qui fonctionne mais a corriger =></a></li>
+                <!-- fonction image de profil -->
                 <?php
                 if(empty ($_SESSION['auth'])): ?>
-                    <li><a href="index.php?p=users.login">Login</a></li>
+                    <li><img src="http://iconbug.com/data/ca/128/99923a7ff69fc587d4357cf40957745a.png" width="40px"></li>
+                    <li> <a href="index.php?p=users.login">Login </a> </li>
+
                 <?php else:;?>
-                    <li><a href="index.php?p=admin.posts.index">admin</a></li>
-                    <li><a href="index.php?p=users.logout">Logout</a></li>
+                    <?php
+                    $email = $_SESSION['email'];
+                    $default = "http://iconbug.com/data/ca/128/99923a7ff69fc587d4357cf40957745a.png";
+                    $size = 10;
+                    $avatar = "http://www.gravatar.com/avatar/" . md5($email). "&s=" . $size;?>
+
+                    <li> <img src="<?= $avatar;?>" width="40px"></li>
+                    <li> <a href="index.php?p=admin.posts.index">admin </a> </li>
+                    <li> <a href="index.php?p=users.logout">Logout</a></li>
                 <?php endif;?>
             </ul>
 

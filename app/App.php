@@ -41,13 +41,7 @@ class App
         return $this->db_instance;
     }
 
-    public static function like($ref, $ref_id,$user_id){
-        echo 'salut';
 
 
-    }
-    public static function dislike($ref, $ref_id,$user_id){
-        echo 'sa va';
-    }
 }
 

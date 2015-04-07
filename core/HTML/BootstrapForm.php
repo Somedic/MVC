@@ -16,10 +16,14 @@ class BootstrapForm extends Form{
         if($type === 'textarea'){
             $input =  '<textarea name="'.$name.'"rows="15" class="form-control">'.$this->getValue($name).'</textarea>';
         }
-
         elseif ($type ==='date'){
-            $input =  '<input type="'.$type.'" name="' .$name. '"value="' .$this->getValue($name). '" class="form-control">';
-        }else{
+            $input =  '<input type="'.$type.'" name="' .$name. '"value="' .date ('Y-m-d H:i:s'). '" class="form-control">';
+        }
+        elseif($type  === 'checkbox'){
+            $value = $this->getValue($name);
+            $input = '<input type="hidden" name="'.$name.'" value="0"><input type="checkbox" name="'.$name.'" value="1" '.(isset($value)== 0?'':'checked').'>';
+        }
+        else{
             $input =  '<input type="'.$type.'" name="' .$name. '"value="' .$this->getValue($name). '" class="form-control">';
         }
 

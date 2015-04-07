@@ -15,19 +15,27 @@ if(isset($_SESSION['user_id'])){
 }
 
 ?>
-
+<!-- style pour image du titre -->
 <style>
-    img {
-        float: left;
-        margin-right: 20px;
+    .rightimg, .leftimg, .centreimg img {
+
+        background-color:#E9E9E9;
+        padding:3px;
+        margin: 6px;
+
+    }
+    .rightimg {float:right;}
+    .leftimg {float:left;}
+    div.centreimg {
+        text-align:center;
     }
 </style>
 
-<div class="jumbotron">
 
+<div class="jumbotron">
     <div class="container">
         <?php if(!empty($article->logo)):;?>
-           <p> <img src="img/2015-04/<?= $article->logo;?>" width="40%"> </img></p> <h1><?=$article->titre?></h1>
+           <p> <img class="leftimg" src="img/2015-04/<?= $article->logo;?>" width="40%"> </img></p> <h1><?=$article->titre?></h1>
             <?php else: ?>
             <h1><?=$article->titre?></h1>
         <?php endif;?>

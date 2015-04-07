@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-sm-8">
             <?php foreach($posts as $post):?>
-                <div class="col-md-6"><?php if(!empty($post->logo)):;?>
+                <div class="col-sm-6"><?php if(!empty($post->logo)):;?>
                         <p> <a href="index.php?p=posts.show&id=<?= $post->id;?>"><img src="img/2015-04/<?= $post->logo;?>" width="100%"  alt=""/></a> </p>
                     <?php else :?>
                         <h2><a href ="<?= $post->url ?>"><?=$post->titre;?></a></h2>

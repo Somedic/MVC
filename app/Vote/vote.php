@@ -24,24 +24,26 @@ class vote {
     }
 
     private function vote($ref,$ref_id,$user_id,$vote){
-        $this->recordExists($ref,$ref_id);
-        $req = $this->pdo->prepare("SELECT id, vote FROM votes WHERE ref=? AND ref_id=? AND user_id=?");
-        $req->execute([$ref,$ref_id,$user_id]);
-        $vote_row = $req->fetch();
-        if($vote_row){
-            if($vote_row->vote == $vote){
+        if ($_SESSION['auth'] ==1){$this->recordExists($ref,$ref_id);
+            $req = $this->pdo->prepare("SELECT id, vote FROM votes WHERE ref=? AND ref_id=? AND user_id=?");
+            $req->execute([$ref,$ref_id,$user_id]);
+            $vote_row = $req->fetch();
+            if($vote_row){
+                if($vote_row->vote == $vote){
 
-                return false;
+                    return false;
+                }
+                var_dump($vote_row);
+                $this->former_vote = $vote_row;
+                $this->pdo->prepare("UPDATE votes SET vote = ?, created_at = ? WHERE id={$vote_row['id']}")->execute([$vote, date('Y-m-d H:i:s')]);
+                return true;
+
             }
-            var_dump($vote_row);
-            $this->former_vote = $vote_row;
-            $this->pdo->prepare("UPDATE votes SET vote = ?, created_at = ? WHERE id={$vote_row['id']}")->execute([$vote, date('Y-m-d H:i:s')]);
-            return true;
-
-        }
-        $req = $this->pdo->prepare("INSERT INTO votes SET ref=?, ref_id=?,user_id=?,created_at=?,vote= $vote");
-        $req->execute([$ref, $ref_id, $user_id, date('Y-m-d H:i:s')]);
+            $req = $this->pdo->prepare("INSERT INTO votes SET ref=?, ref_id=?,user_id=?,created_at=?,vote= $vote");
+            $req->execute([$ref, $ref_id, $user_id, date('Y-m-d H:i:s')]);
+            return true;}
         return true;
+
     }
 
     public function like($ref, $ref_id, $user_id){

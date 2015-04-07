@@ -18,6 +18,10 @@ class Table {
         }
     }
 
+    public function allPost(){
+        return $this->query('SELECT * FROM '.$this->table.' ORDER BY articles.id DESC');
+    }
+
     public function all(){
     return $this->query('SELECT * FROM '.$this->table);
     }

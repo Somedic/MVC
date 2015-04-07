@@ -26,6 +26,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
 
@@ -48,8 +49,28 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php?p=users.logout">Logout</a></li>
+
+                <!-- fonction image de profil -->
+
+                <?php
+                if(empty ($_SESSION['auth'])): ?>
+                    <li><img src="http://iconbug.com/data/ca/128/99923a7ff69fc587d4357cf40957745a.png" width="40px"></li>
+                    <li> <a href="index.php?p=users.login">Login </a> </li>
+
+                <?php else:;?>
+                    <?php
+                    $email = $_SESSION['email'];
+                    $default = "http://iconbug.com/data/ca/128/99923a7ff69fc587d4357cf40957745a.png";
+                    $size = 10;
+                    $avatar = "http://www.gravatar.com/avatar/" . md5($email). "&s=" . $size;?>
+
+                    <li> <img src="<?= $avatar;?>" width="40px"></li>
+                    <li> <a href="index.php?p=admin.posts.index">admin </a> </li>
+                    <li> <a href="index.php?p=users.logout">Logout</a></li>
+                <?php endif;?>
             </ul>
+
+        </div><!--/
 
         </div><!--/.nav-collapse -->
 
@@ -76,6 +97,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jQuery/jQuery.js"></script>
 <script src="js/app.js"></script>
+
 
 </body>
 </html>

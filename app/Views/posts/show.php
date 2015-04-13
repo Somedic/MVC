@@ -42,6 +42,7 @@ if(isset($_SESSION['user_id'])){
         <i class="fa fa-thumbs-up"></i> <span id="like_count"></span><?= $article->like_count ?>
         <i class="fa fa-thumbs-down"></i> <span id="dislike_count"></span><?= $article->dislike_count ?>
         <p><em class="btn btn-xs btn-info"><strong><?= $article->categorie;?></em></strong></p>
+        <p><?= $article->description;?></p>
     </div>
 
     </div>

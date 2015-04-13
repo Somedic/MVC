@@ -12,8 +12,10 @@ class PostEntity extends Entity{
     }
 
     public function getExtrait(){
-        $html = '<p>' .substr($this->contenu,0, strpos($this->contenu, ' ', 200)).' ... </p>';
-        $html .= '<p><a class="btn btn-xs btn-default" href="'.$this->getURL().'" role="button">Voir la suite &raquo;</a></p>';
+        $html = '<p>' .substr($this->description,0, strpos($this->description, ' ', 150)).' ... ';
+        $html .= '<a class="btn btn-xs btn-warning" href="'.$this->getURL().'" role="button">Voir la suite &raquo;</a></p>';
         return $html;
     }
+
+
 }

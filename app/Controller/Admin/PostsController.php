@@ -15,8 +15,11 @@ class PostsController extends AppController{
 
     public function index(){
         $posts = $this->Post->allPost();
-        $this->render('admin.posts.index', compact('posts'));
+        $this->render('admin.posts.index', compact('posts','categories'));
     }
+
+
+
 
     public function add(){
         if(!empty ($_POST)){

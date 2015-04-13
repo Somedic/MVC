@@ -47,7 +47,7 @@
                 <li><a href="index.php?user=1">User 1</a></li>
                 <li><a href="index.php?user=2">User 2</a></li>
                 <li><a href="index.php?user=3">User 3</a></li>
-                </ul>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
 
                 <!-- fonction image de profil -->
@@ -64,7 +64,7 @@
                     $avatar = "http://www.gravatar.com/avatar/" . md5($email). "&s=" . $size;?>
 
                     <li> <img src="<?= $avatar;?>" width="40px"></li>
-                    <li> <a href="index.php?p=admin.posts.index">admin </a> </li>
+                    <li> <a href="index.php?p=admin.posts.index"><?= $_SESSION['pseudo']?> </a> </li>
                     <li> <a href="index.php?p=users.logout">Logout</a></li>
                 <?php endif;?>
             </ul>
@@ -85,11 +85,11 @@ if(isset($_GET['user'])){
 
 
 
-    <hr>
+<hr>
 
-    <footer>
-        <p>&copy; Somedic.ch - conception de site web  2015</p>
-    </footer>
+<footer>
+    <p>&copy; Somedic.ch - conception de site web  2015</p>
+</footer>
 </div> <!-- /container -->
 
 

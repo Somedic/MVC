@@ -27,6 +27,7 @@ class DBAuth{
          if($user->password === sha1($password)){
              $_SESSION['auth'] = $user->id;
              $_SESSION['email'] = $user->email;
+             $_SESSION['pseudo'] = $user->pseudo;
              return true;
          }
         }

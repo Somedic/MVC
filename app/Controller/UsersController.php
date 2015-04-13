@@ -25,6 +25,8 @@ class UsersController extends AppController {
     public function logout(){
         //session_destroy();
         unset ($_SESSION['auth']);
+        unset ($_SESSION['user_id']);
+        unset ($_SESSION['pseudo']);
         header('Location:index.php');
     }
 

@@ -15,7 +15,9 @@ class PostsController extends AppController{
     public function index(){
         $posts = $this->Post->last();
         $categories = $this->Category->all();
-        $this->render('posts.index',  compact('posts','categories'));
+        $nbArticleTotal = $this->Post->nbArticleTotal();
+        $this->render('posts.index',  compact('posts','categories','nbArticleTotal'));
+
     }
 
     public function category(){
@@ -25,7 +27,9 @@ class PostsController extends AppController{
         }
         $articles = $this->Post->lastByCategory($_GET['id']);
         $categories = $this->Category->all();
-        $this->render('posts.category',  compact('articles','categories', 'categorie'));
+        $nbArticleTotal = $this->Post->nbArticleTotal($_GET['id']);
+        $nbArticleCat = $this->Post->nbArticleCat($_GET['id']);
+        $this->render('posts.category',  compact('articles','categories', 'categorie','nbArticleTotal','nbArticleCat'));
     }
 
     public function show(){
@@ -33,5 +37,7 @@ class PostsController extends AppController{
         $article = $this->Post->findWithCategory($_GET['id']);
         $this->render('posts.show',  compact('article'));
     }
+
+
 
 }

@@ -19,7 +19,16 @@ class Table {
     }
 
     public function allPost(){
-        return $this->query('SELECT * FROM '.$this->table.' ORDER BY articles.id DESC');
+        if (empty($_POST['category_id'])){
+            return $this->query("
+            SELECT articles.id, articles.titre,articles.online,  categories.name  AS category_name FROM ".$this->table."
+            LEFT JOIN categories  ON category_id= categories.id
+            ORDER BY articles.id DESC");
+        }
+        return $this->query("
+            SELECT articles.id, articles.titre,articles.online, categories.name  AS category_name FROM ".$this->table."
+            LEFT JOIN categories  ON category_id= categories.id
+            WHERE categories.id = ? ORDER BY articles.id DESC",[$_POST['category_id']]);
     }
 
     public function all(){

@@ -2,7 +2,10 @@
 $form = new BootstrapForm();
 $this->loadModel('Category');
 $categories =$this->Category->extract('id','name');
+
 ?>
+
+
 
 <div class="jumbotron" style="padding-top: 2cm;">
     <div class="container">
@@ -15,7 +18,7 @@ $categories =$this->Category->extract('id','name');
 
     <form method="post">
         <?= $form->select('category_id', 'Catégorie', $categories);?>
-        <?= $form->submit('trier')?>
+        <?= $form->submit('trier par catégorie')?>
     </form>
 
     <table class="table">

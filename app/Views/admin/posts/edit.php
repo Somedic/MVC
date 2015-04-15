@@ -4,9 +4,10 @@
         <form method="post">
             <?= $form->select('category_id', 'Catégorie', $categories);?>
             <?= $form->input('titre','Titre de l\'article');?>
-            <?= $form->input('online', 'Visible',  ['type'=> 'checkbox']);?>
+            <?= $form->input('description','Description');?>
             <?= $form->input('contenu','Contenu', ['type'=> 'textarea']);?>
             <?= $form->input('date','Date', ['type'=> 'date']);?>
+            <?= $form->input('online', 'Visible : ',  ['type'=> 'checkbox']);?>
             <?= $form->submit('Enregister')?>
 
 

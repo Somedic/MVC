@@ -19,7 +19,7 @@
         <?php foreach($articles as $post):?>
             <div class="col-xs-6 col-lg-4">
                 <?php if(!empty($post->logo)):;?>
-                   <img src="img/2015-04/<?= $post->logo;?>" width="100%"> </img></p>
+                 <p> <a href="index.php?p=posts.show&id=<?= $post->id;?>"><img src="img/2015-04/<?= $post->logo;?>" width="100%"  alt=""/></a> </p>
                 <?php else :?>
                     <h2><a href ="<?= $post->url ?>"><?=$post->titre;?></a></h2>
                 <?php endif ;?>

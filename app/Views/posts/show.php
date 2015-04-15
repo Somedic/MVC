@@ -71,13 +71,14 @@ if(isset($_SESSION['user_id'])){
             </form>
         </div>
 
-    </div>
 
 
-</div><!-- /.contenu -->
 
-<div class="container">
+
+    </div><!-- /.contenu -->
+
+
     <p>&nbsp;</p>
     <h2>$_SESSION</h2>
     <?php var_dump($_SESSION); ?>
-    </div>
+

@@ -1,8 +1,12 @@
 <div class="jumbotron" style="padding-top: 2cm;">
     <div class="container">
+
         <p class="text-center"><img src="img/static/logo.png" width="100%">
         <p>Site dedié a mes passions, la vape, le sport extreme, la musique électronique </p>
         <p>botron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p>
+
+        </p>
     </div>
 </div>
 
@@ -39,5 +43,10 @@
                    <a class="list-group-item" href="<?= $categorie->url;?>"><?=$categorie->name;?> <span class="badge"> </span></a>
                 <?php endforeach;?>
             </div>
+
+
+
         </div><!--/.sidebar-offcanvas-->
+
+
     </div>

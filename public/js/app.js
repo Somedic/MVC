@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     var $vote = $('#vote');
     $('.vote_like', $vote).click(function(e){
         e.preventDefault();
@@ -47,5 +46,9 @@ $(document).ready(function(){
             $('.vote_btns', $vote).fadeIn();
         });
     }
+
+
+
+
 
 })

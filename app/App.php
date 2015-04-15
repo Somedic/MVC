@@ -26,6 +26,13 @@ class App
         App\Autoloader::register();
         require ROOT.'/core/Autoloader.php';
         Core\Autoloader::register();
+
+        if (array_key_exists('auth', $_SESSION)) {
+            $_COOKIE['auth']    = $_SESSION['auth'];
+            $_COOKIE['email']   = $_SESSION['email'];
+            $_COOKIE['pseudo']  = $_SESSION['pseudo'];
+            $_COOKIE['user_id'] = $_SESSION['user_id'];
+        }else { $_COOKIE['auth']= null;}
     }
 
     public function getTable($name){
@@ -41,7 +48,27 @@ class App
         return $this->db_instance;
     }
 
+    public static function login(){
+        if(empty ($_SESSION['auth'])) {
+            echo '<li><img class="profil" src="http://iconbug.com/data/ca/128/99923a7ff69fc587d4357cf40957745a.png" width="40px"></li>';
+            echo '<li> <a href="index.php?p=users.login">Login </a> </li>';
+        }else{
+            $email = $_SESSION['email'];
+            $default = "http://iconbug.com/data/ca/128/99923a7ff69fc587d4357cf40957745a.png";
+            $size = 10;
+            $avatar = "http://www.gravatar.com/avatar/" . md5($email). "&s=" . $size;
+            echo '<li> <img class="profil" src="'.$avatar.'" width="40px"></li>';
+            if($_SESSION['role'] === 'admin'){
+                echo '<li> <a href="index.php?p=admin.posts.index">'.$_SESSION['pseudo'].' </a> </li>';
+            }else{
+                echo '<li> <a href="index.php?p=posts.index">'.$_SESSION['pseudo'].' </a> </li>';
+            }
+            echo '<li> <a href="index.php?p=users.logout">Logout</a></li>';
+        }
+    }
 
+    public static function cookie()
+    {
 
+    }
 }
-

@@ -24,7 +24,7 @@ class vote {
     }
 
     private function vote($ref,$ref_id,$user_id,$vote){
-        if ($_SESSION['auth'] ==1){$this->recordExists($ref,$ref_id);
+        if ($_SESSION['auth'] !== null){$this->recordExists($ref,$ref_id);
             $req = $this->pdo->prepare("SELECT id, vote FROM votes WHERE ref=? AND ref_id=? AND user_id=?");
             $req->execute([$ref,$ref_id,$user_id]);
             $vote_row = $req->fetch();

@@ -55,7 +55,6 @@ class PostTable extends Table{
             ORDER BY articles.date DESC",[$category_id]);
     }
 
-
     /*
     * Recupère un article en liant la catégorie associée -> pour page Show
     * @param $id int

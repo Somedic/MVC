@@ -16,10 +16,8 @@ class PostsController extends AppController{
     public function index(){
         $posts = $this->Post->allPost();
         $this->render('admin.posts.index', compact('posts','categories'));
+
     }
-
-
-
 
     public function add(){
         if(!empty ($_POST)){
@@ -28,7 +26,8 @@ class PostsController extends AppController{
                 'contenu'    => $_POST ['contenu'],
                 'category_id'=> $_POST ['category_id'],
                 'date'       => $_POST ['date'],
-                'online'     => $_POST ['online']
+                'online'     => $_POST ['online'],
+                'description'=> $_POST ['description']
             ]);
             if($result){ return $this->index();
             }
@@ -46,7 +45,9 @@ class PostsController extends AppController{
                 'contenu'    => $_POST ['contenu'],
                 'category_id'=> $_POST ['category_id'],
                 'date'       => $_POST ['date'],
-                'online'     => $_POST ['online']
+                'online'     => $_POST ['online'],
+                'description'=> $_POST ['description']
+
             ]);
             if($result){
                 return $this->index();
